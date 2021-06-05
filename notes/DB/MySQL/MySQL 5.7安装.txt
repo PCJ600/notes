@@ -1,0 +1,28 @@
+#### Debian 10安装MySQL5.7
+
+```
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.13-1_all.deb # 弹出图形界面，选5.7
+sudo apt-get update
+sudo apt-get install mysql-server
+systemctl start mysql
+```
+
+问题：
+
+* ldconfig找不到 (安装一个，设置PATH路径)
+
+* 源有问题，用Debian 10的阿里源
+
+参考链接：https://www.cnblogs.com/vincegod/p/10508517.html
+
+
+create table Addressbook
+( regist_no INTEGER NOT NULL,
+  name VARCHAR(128) NOT NULL,
+  address VARCHAR(256) NOT NULL,
+  tel_no CHAR(10),
+  mail_address CHAR(20),
+  primary key(regist_no));
+  
+alter table Addressbook add column postal_code CHAR(8) NOT NULL;
